@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Data
@@ -17,10 +19,12 @@ public class Pauta {
     private LocalDateTime dataHora;
 
     @ManyToOne
-    @JoinColumn(name = "assembleia_id")
+    @JoinColumn(name = "id_assembleia")
+    @JsonBackReference
     private Assembleia assembleia;
 
     @OneToMany(mappedBy = "pauta")
+    @JsonManagedReference
     private List<Votacao> votacoes;
 
     public Pauta() {
