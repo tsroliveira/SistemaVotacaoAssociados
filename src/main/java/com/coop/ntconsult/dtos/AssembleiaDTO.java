@@ -1,8 +1,8 @@
-package com.coop.ntconsult.dtos;
+    package com.coop.ntconsult.dtos;
 
-import lombok.Data;
+    import lombok.Data;
 
-@Data
-public class AssembleiaDTO {
-    private String titulo;
-}
+    @Data
+    public class AssembleiaDTO {
+        private String titulo;
+    }

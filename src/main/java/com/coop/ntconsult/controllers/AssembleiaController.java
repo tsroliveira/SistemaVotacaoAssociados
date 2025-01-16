@@ -51,9 +51,8 @@ public class AssembleiaController {
         assembleiaService.excluirAssembleia(id);
 
         Map<String, String> response = new HashMap<>();
-        response.put("mensagem", "EXCLUIDO_COM_SUCESSO");
-
-        //return ResponseEntity.noContent().build();
+        response.put("mensagem", "EXCLUIDA_COM_SUCESSO");
+        
         return ResponseEntity.ok(response);
 
     }

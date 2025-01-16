@@ -30,7 +30,7 @@ public class AssembleiaService {
 
     public RespostaAssembleiaDTO cadastrarAssembleia(AssembleiaDTO assembleiaDTO) {
 
-        Optional<Assembleia> assembleiaExistente = assembleiaRepository.findByCpf(assembleiaDTO.getTitulo());
+        Optional<Assembleia> assembleiaExistente = assembleiaRepository.findByTitulo(assembleiaDTO.getTitulo());
         
         if (assembleiaExistente.isPresent()) {
             Assembleia assembleia = assembleiaExistente.get();
@@ -52,7 +52,7 @@ public class AssembleiaService {
                 novoAssembleia.getId(),
                 novoAssembleia.getTitulo(),
                 novoAssembleia.getDataHora(),
-                "ASSOCIADO_CADASTRADO_COM_SUCESSO"
+                "ASSEMBLEIA_CADASTRADA_COM_SUCESSO"
             );
         }    
     }

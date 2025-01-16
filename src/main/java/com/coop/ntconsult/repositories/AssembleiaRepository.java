@@ -6,6 +6,5 @@ import com.coop.ntconsult.models.Assembleia;
 import java.util.Optional;
 
 public interface AssembleiaRepository extends JpaRepository<Assembleia, Long> {
-        Optional<Assembleia> findByCpf(String cpf);
-
+    Optional<Assembleia> findByTitulo(String titulo);
 }
