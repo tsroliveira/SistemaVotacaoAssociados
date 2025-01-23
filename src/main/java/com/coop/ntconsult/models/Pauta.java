@@ -18,13 +18,13 @@ public class Pauta {
 
     private LocalDateTime dataHora;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "id_assembleia")
-    @JsonBackReference
     private Assembleia assembleia;
 
-    @OneToMany(mappedBy = "pauta")
     @JsonManagedReference
+    @OneToMany(mappedBy = "pauta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Votacao> votacoes;
 
     public Pauta() {

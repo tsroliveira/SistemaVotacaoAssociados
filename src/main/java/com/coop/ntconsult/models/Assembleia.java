@@ -5,7 +5,6 @@ import lombok.Data;
 import java.time.LocalDateTime;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Data
@@ -18,8 +17,8 @@ public class Assembleia {
 
     private LocalDateTime dataHora;
 
-    @OneToMany(mappedBy = "assembleia")
     @JsonManagedReference
+    @OneToMany(mappedBy = "assembleia", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Pauta> pautas;
 
     public Assembleia() {

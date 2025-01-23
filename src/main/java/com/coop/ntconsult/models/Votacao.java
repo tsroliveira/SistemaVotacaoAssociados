@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Data
@@ -19,14 +21,23 @@ public class Votacao {
     private LocalDateTime dataFim;
 
     @ManyToOne
-    @JoinColumn(name = "pauta_id")
+    @JoinColumn(name = "id_pauta")
+    @JsonBackReference
     private Pauta pauta;
 
-    @OneToMany(mappedBy = "votacao")
+    @OneToMany(mappedBy = "votacao", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Voto> votos;
 
     public Votacao() {
         this.dataInicio = LocalDateTime.now();
-        this.dataFim = this.dataInicio.plusMinutes(1); // Tempo default de 1 minuto
+        this.dataFim = this.dataInicio.plusSeconds(60);
+    }
+
+    public Votacao(String motivo, Pauta pauta, long duracao) {
+        this.motivo = motivo;
+        this.pauta = pauta;
+        this.dataInicio = LocalDateTime.now();
+        this.dataFim = this.dataInicio.plusSeconds(duracao > 0 ? duracao : 60);
     }
 }
