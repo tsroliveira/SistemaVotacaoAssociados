@@ -42,7 +42,7 @@ Este projeto é uma API REST projetada para gerenciar sessões de votação para
 docker run -d --name mysql-cooperativa -p 3308:3306 \
   -e MYSQL_DATABASE=cooperativa \
   -e MYSQL_USER=app \
-  -e MYSQL_PASSWORD=AccSO@#1 \
+  -e MYSQL_PASSWORD=app \
   -e MYSQL_ROOT_PASSWORD=root \
   mysql:8
 ```
@@ -63,7 +63,7 @@ docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seuusuario/ntconsult.git
+git clone https://github.com/tsroliveira/ntconsult.git 
 cd ntconsult
 ```
 
