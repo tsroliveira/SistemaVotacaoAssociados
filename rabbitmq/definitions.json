@@ -1,0 +1,41 @@
+{
+  "vhosts": [{
+    "name": "/"
+  }],
+  "users": [{
+    "name": "admin",
+    "password": "admin123",
+    "tags": "administrator"
+  }],
+  "permissions": [{
+    "user": "admin",
+    "vhost": "/",
+    "configure": ".*",
+    "write": ".*",
+    "read": ".*"
+  }],
+  "exchanges": [{
+    "name": "votacao.exchange",
+    "vhost": "/",
+    "type": "direct",
+    "durable": true,
+    "auto_delete": false,
+    "internal": false,
+    "arguments": {}
+  }],
+  "queues": [{
+    "name": "votacao.encerrada.queue",
+    "vhost": "/",
+    "durable": true,
+    "auto_delete": false,
+    "arguments": {}
+  }],
+  "bindings": [{
+    "source": "votacao.exchange",
+    "vhost": "/",
+    "destination": "votacao.encerrada.queue",
+    "destination_type": "queue",
+    "routing_key": "votacao.encerrada",
+    "arguments": {}
+  }]
+}
