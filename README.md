@@ -2,6 +2,9 @@
 
 Este projeto é uma API REST projetada para gerenciar sessões de votação para cooperativas, onde cada associado tem um voto e as decisões são tomadas através de assembleias de votação.
 
+<img src="https://github.com/tsroliveira/devicon/blob/master/icons/java/java-original-wordmark.svg" height="46" width="46" /> <img src="https://github.com/tsroliveira/devicon/blob/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" height="46" width="46" /> &nbsp; <img src="https://github.com/tsroliveira/devicon/blob/master/icons/rabbitmq/rabbitmq-original.svg" height="34" width="34" /> &nbsp; <img src="https://github.com/tsroliveira/devicon/blob/master/icons/docker/docker-original-wordmark.svg" height="46" width="46" /> &nbsp; <img src="https://github.com/tsroliveira/devicon/blob/master/icons/mysql/mysql-original-wordmark.svg" height="46" width="46" />
+
+
 ## Funcionalidades
 
 - Gerenciamento de associados (CRUD)
@@ -10,8 +13,8 @@ Este projeto é uma API REST projetada para gerenciar sessões de votação para
 - Gerenciamento de sessões de votação com duração configurável
 - Registro de votos (Sim/Não)
 - Contagem de votos e geração de resultados
-- Integração com serviço externo de validação de CPF
-- Sistema de mensageria para notificar resultados
+- Integração com serviço externo de validação de CPF usando AWS Lambda e Bucket S3 (https://yblnpqv2ztxtir7e6hfmsndszi0uxquf.lambda-url.us-east-1.on.aws/users)
+- Sistema de mensageria para notificar resultados usando Docker e RabbitMQ
 
 ## Stack de Tecnologia
 
@@ -52,30 +55,37 @@ docker run -d --name mysql-cooperativa -p 3308:3306 \
 CREATE DATABASE cooperativa;
 ```
 
-### Configuração do RabbitMQ
-
-1. Instale o RabbitMQ ou use Docker:
-```bash
-docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
-```
-
-### Configuração da Aplicação
+### Configuração da Aplicação Parte 1
 
 1. Clone o repositório:
 ```bash
 git clone https://github.com/tsroliveira/ntconsult.git 
-cd ntconsult
+cd SistemaVotacaoAssociados
 ```
 
-2. Configure as propriedades da aplicação:
+### Configuração do RabbitMQ
+
+1. Instale o RabbitMQ ou use Docker:
+```bash
+docker-compose up -d 
+#pré-configurado
+```
+```bash
+docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+#criar um novo
+```
+
+### Configuração da Aplicação Parte 2
+
+1. Configure as propriedades da aplicação:
    - Edite `src/main/resources/application.properties` para corresponder ao seu ambiente
 
-3. Construa a aplicação:
+2. Construa a aplicação:
 ```bash
 ./mvnw clean package
 ```
 
-4. Execute a aplicação:
+3. Execute a aplicação:
 ```bash
 ./mvnw spring-boot:run
 ```
