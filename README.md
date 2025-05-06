@@ -59,7 +59,7 @@ CREATE DATABASE cooperativa;
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/tsroliveira/ntconsult.git 
+git clone https://github.com/tsroliveira/SistemaVotacaoAssociados.git 
 cd SistemaVotacaoAssociados
 ```
 
