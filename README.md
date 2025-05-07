@@ -131,6 +131,11 @@ docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
 - `GET /api/votos/{id}` - Obter voto por ID
 - `DELETE /api/votos/{id}` - Excluir voto
 
+### Para validar o backend importe a collection abaixo:
+```
+Collection: SistemaVotacaoAssociados [NTConsult].postman_collection.json
+```
+
 ## Exemplos de Requisições/Respostas
 
 ### Criar Associado
@@ -243,7 +248,7 @@ POST /api/votos
   "status": "VOTO_REGISTRADO"
 }
 ```
-SistemaVotacaoAssociados [NTConsult].postman_collection.json
+
 ## Sugestões de Melhorias
 
 1. **Tratamento de Exceções**: Implementar um manipulador global de exceções usando `@ControllerAdvice`
