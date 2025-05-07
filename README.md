@@ -249,6 +249,31 @@ POST /api/votos
 }
 ```
 
+# **Use your preferred IDE**
+
+## Instalação do Front-End
+
+Follow these steps:
+
+```sh
+# Step 1: Navigate to the project directory.
+cd /web
+
+# Step 2: Install the necessary dependencies.
+npm install
+
+# Step 3: Start the development server with auto-reloading and an instant preview.
+npm run dev
+```
+
+## Tecnologias utilizadas no Front-End
+
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
+
 ## Sugestões de Melhorias
 
 1. **Tratamento de Exceções**: Implementar um manipulador global de exceções usando `@ControllerAdvice`
