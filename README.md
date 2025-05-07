@@ -243,7 +243,7 @@ POST /api/votos
   "status": "VOTO_REGISTRADO"
 }
 ```
-
+SistemaVotacaoAssociados [NTConsult].postman_collection.json
 ## Sugestões de Melhorias
 
 1. **Tratamento de Exceções**: Implementar um manipulador global de exceções usando `@ControllerAdvice`

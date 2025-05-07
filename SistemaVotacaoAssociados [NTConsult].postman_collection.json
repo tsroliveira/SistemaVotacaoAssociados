@@ -1,0 +1,829 @@
+{
+	"info": {
+		"_postman_id": "59ca1e9b-c269-4a42-a34b-1dea66ddf341",
+		"name": "SistemaVotacaoAssociados [NTConsult]",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1952408"
+	},
+	"item": [
+		{
+			"name": "CPF",
+			"item": [
+				{
+					"name": "ListUsers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://yblnpqv2ztxtir7e6hfmsndszi0uxquf.lambda-url.us-east-1.on.aws/users",
+							"protocol": "https",
+							"host": [
+								"yblnpqv2ztxtir7e6hfmsndszi0uxquf",
+								"lambda-url",
+								"us-east-1",
+								"on",
+								"aws"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ValidaCPF",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"CPF\": \"33614548082\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://yblnpqv2ztxtir7e6hfmsndszi0uxquf.lambda-url.us-east-1.on.aws/users",
+							"protocol": "https",
+							"host": [
+								"yblnpqv2ztxtir7e6hfmsndszi0uxquf",
+								"lambda-url",
+								"us-east-1",
+								"on",
+								"aws"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BlacklistADD",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"CPF\": \"33614548082\",\r\n   \"MOTIVO\": \"String\",\r\n   \"ACTION\": \"ADD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://yblnpqv2ztxtir7e6hfmsndszi0uxquf.lambda-url.us-east-1.on.aws/blacklist",
+							"protocol": "https",
+							"host": [
+								"yblnpqv2ztxtir7e6hfmsndszi0uxquf",
+								"lambda-url",
+								"us-east-1",
+								"on",
+								"aws"
+							],
+							"path": [
+								"blacklist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BlacklistRemove",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"CPF\": \"33614548082\",\r\n   \"MOTIVO\": \"String\",\r\n   \"ACTION\": \"REMOVE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://yblnpqv2ztxtir7e6hfmsndszi0uxquf.lambda-url.us-east-1.on.aws/blacklist",
+							"protocol": "https",
+							"host": [
+								"yblnpqv2ztxtir7e6hfmsndszi0uxquf",
+								"lambda-url",
+								"us-east-1",
+								"on",
+								"aws"
+							],
+							"path": [
+								"blacklist"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Associado",
+			"item": [
+				{
+					"name": "CadastrarAssociado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Carlos Silva\",\r\n    \"cpf\": \"93816643078\",\r\n    \"funcao\": \"Associado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/associados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"associados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscaAssociadoPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/associados/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"associados",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListaAssociados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/associados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"associados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AtualizaAssociado",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Thiago Oliveira\",\r\n    \"cpf\": \"45596109088\",\r\n    \"funcao\": \"Associado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/associados/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"associados",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ExcluirAssociado",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Thiago Oliveira\",\r\n    \"cpf\": \"45596109088\",\r\n    \"funcao\": \"Associado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/associados/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"associados",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Assembleia",
+			"item": [
+				{
+					"name": "CadastrarAssembleia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\":\"Assembleia De Natal\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/assembleias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"assembleias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscaAssembleiaPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/assembleias/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"assembleias",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListaAssembleias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/assembleias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"assembleias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AtualizaAssembleia",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Assembleia De Ano Novo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/assembleias/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"assembleias",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ExcluirAssembleia",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Thiago Oliveira\",\r\n    \"cpf\": \"45596109088\",\r\n    \"funcao\": \"Associado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/assembleias/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"assembleias",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pauta",
+			"item": [
+				{
+					"name": "CadastrarPauta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\r\n\t\"id_assembleia\": 2,\r\n\t\"titulo\": \"Pauta 04\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/pautas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pautas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscaPautaPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/pautas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pautas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListaPautas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/pautas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pautas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AtualizaPauta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"titulo\": \"Pauta 02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/pautas/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pautas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ExcluirPauta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Thiago Oliveira\",\r\n    \"cpf\": \"45596109088\",\r\n    \"funcao\": \"Associado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/pautas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pautas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SessaoDeVotacao",
+			"item": [
+				{
+					"name": "CadastrarVotacao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\r\n\t\"idPauta\": 4,\r\n\t\"motivo\": \"Votacao 3\",\r\n\t\"duracao\": 3600\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/votacoes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"votacoes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscarVotacaoPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/votacoes/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"votacoes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListaVotacoes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/votacoes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"votacoes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AtualizaVotacao",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Assembleia De Ano Novo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/votacoes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"votacoes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ExcluirVotacao",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Thiago Oliveira\",\r\n    \"cpf\": \"45596109088\",\r\n    \"funcao\": \"Associado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/votacoes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"votacoes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Voto",
+			"item": [
+				{
+					"name": "CadastrarVotos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\r\n    \"idPauta\": 4,\r\n    \"idAssociado\": 1,\r\n    \"voto\": \"NAO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/votos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"votos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscarVotoPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/votos/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"votos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListaVotos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/votos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"votos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AtualizaVoto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Assembleia De Ano Novo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/votos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"votos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ExcluirVotacao",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Thiago Oliveira\",\r\n    \"cpf\": \"45596109088\",\r\n    \"funcao\": \"Associado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/votos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"votos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
